@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>Main</servlet-name>
+		<servlet-class>com.google.code.facebook.graph.appengine.servlet.MainServlet</servlet-class>
+		<init-param>
+			<param-name>consumerKey</param-name>
+			<param-value>112986745406607</param-value>
+		</init-param>
+		<init-param>
+			<param-name>consumerSecret</param-name>
+			<param-value>d9ec498e134be3cc0c8669e58cf26699</param-value>
+		</init-param>
+		<init-param>
+			<param-name>callbackUrl</param-name>
+			<param-value>http://facebookgraph.appspot.com/</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>GraphFetcher</servlet-name>
+		<servlet-class>com.google.code.facebook.graph.appengine.servlet.GraphFetcherServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GraphUpdater</servlet-name>
+		<servlet-class>com.google.code.facebook.graph.appengine.servlet.GraphUpdaterServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Proxy</servlet-name>
+		<servlet-class>com.google.code.facebook.graph.appengine.servlet.ProxyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Main</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GraphFetcher</servlet-name>
+		<url-pattern>/fetchGraph</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GraphUpdater</servlet-name>
+		<url-pattern>/updateGraph</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Proxy</servlet-name>
+		<url-pattern>/proxy</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
